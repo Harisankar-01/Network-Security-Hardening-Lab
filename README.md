@@ -111,8 +111,8 @@ Segmentation and firewall rules alone control *which* services are reachable, bu
 
 Screenshots and logs (firewall rule configuration, live-view logs showing blocked/passed traffic, Snort console output for both the brute-force block and the Nmap detection) are in [`screenshots/`](screenshots/).
 <div>
-<img src="https://img.shields.io/badge/Snort-Intrusion_Detection-EE4B8B?style=for-the-badge">
+<img src="https://img.shields.io/badge/-Snort-EF3B2D?&style=for-the-badge&logo=snort&logoColor=white">
 <img src="https://img.shields.io/badge/OPNsense-Firewall-D94F00?style=for-the-badge&logo=opnsense&logoColor=white">
-<img src="https://img.shields.io/badge/Windows-Server_2022-0078D4?style=for-the-badge&logo=windows&logoColor=white">
+<img src="https://img.shields.io/badge/-Windows-0078D4?&style=for-the-badge&logo=windows&logoColor=white" />
 </div>
 
