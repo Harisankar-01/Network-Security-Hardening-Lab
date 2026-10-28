@@ -28,7 +28,7 @@ flowchart LR
     end
 
     subgraph LAN [LAN Zone: 192.168.1.0/24 - Trusted]
-        SNORT["Snort True IPS (Ubuntu)<br/>Inline Bridge (br0)<br/>IP: 192.168.1.20"]
+        SNORT["Snort True IPS (Ubuntu)<br/>Inline Bridge (enps03)<br/>IP: 192.168.1.20"]
         WIN["Windows Server 2022<br/>Target Endpoint<br/>IP: 192.168.1.9"]
     end
 
