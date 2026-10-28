@@ -1,4 +1,4 @@
-# Network Security Hardening Lab — Segmentation, Firewall Hardening & Inline IPS
+# Network Security Hardening Lab — Network Segmentation, Firewall Hardening & Inline IPS
 
 A follow-up project to the <a href="https://github.com/Harisankar-01/SOC-Lab-Enterprise-Monitoring">SOC Lab project</a>, built specifically to close its biggest gap: the original SOC lab ran on a flat network where attacker to target traffic never touched the firewall. This project rebuilds the network with real segmentation, firewall rules to block malicious traffic, and an inline IDS/IPS that actively Detect, Alerts And blocks attacks.
 
