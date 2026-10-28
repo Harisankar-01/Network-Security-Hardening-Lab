@@ -112,3 +112,5 @@ Segmentation and firewall rules alone control *which* services are reachable, bu
 Screenshots and logs (firewall rule configuration, live-view logs showing blocked/passed traffic, Snort console output for both the brute-force block and the Nmap detection) are in [`screenshots/`](screenshots/).
 
 <img src="https://img.shields.io/badge/Snort-Intrusion_Detection-EE4B8B?style=for-the-badge&logo=cisco&logoColor=white">
+![Snort](https://shields.io)
+
