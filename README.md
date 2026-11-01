@@ -46,7 +46,7 @@ All traffic between the attacker zone (WAN) and the protected zone (LAN) is forc
 
 ---
 
-## Phase 1: Network Segmentation
+## Phase 1: Network Segmentation and verification
 
 - Replaced the SOC Lab's single flat subnet with two isolated VirtualBox Internal Networks: `NetSec_WAN` (10.0.0.0/24) and a `NetSec_LAN` segment (192.168.1.0/24)
 - OPNsense configured with WAN (`10.0.0.1`) and LAN (`192.168.1.1`) interfaces, becoming the only path between zones
@@ -56,16 +56,31 @@ All traffic between the attacker zone (WAN) and the protected zone (LAN) is forc
 
 ---
 
-## Phase 2: Firewall Hardening (Default-Deny)
+## Phase 2: Firewall Hardening 
 `(OPNsense Firewall have its own inbuilt rules which blocks unwanted connections from untrusted zone by defualt)`
-- Disabled broad "allow all" rules; configured explicit allow rules only for ICMP & SSH(testing) and RDP (TCP/3389)
+- in built rules of the firewall blocks connections from wan network by default so configured explicit allow rules only for ICMP & SSH and RDP (TCP/3389) for testing purpose 
 - Verified default-deny is active: unallowed ports (e.g. via a full Nmap scan) return `not showed marked as closed OPNsesne detected and  blocked the request and logged the scan attempt as **"Default deny / state violation"**
+- once testing was completed  restricted RDP source to a single authorised host and removed the allow rule of ICMP to demonstrate a hardened least privilege configuration ,and remove unnecessary attack surface.
+  before: source = '10.0.0.0/24 (any device on wan)
+  after:  source=  '10.0.0.5 (kalis exact ip) 
 
-**Result:** Nmap scan from Kali against Windows Server now shows only port 3389,22 are reachable; all other ports correctly filtered by the firewall, a direct contrast to the SOC Lab, where every port was reachable with no firewall visibility at all.
+**Result:**
+```bash
+xfreerdp /u:administrator /p: password /v:192.168.1.9 
+```
+Connected Successfully
+Tested from a different machine on the Same Network but its not connected this confirms the rule is perfectly working 
+* **Nmap test**
+from kali:
+```bash
+nmap -sS 192.168.1.9
+```
+* **Result**
+* IT shows all ports are closed/filtered
+this confirms that the firewall blocking all unwanted connections from outside network perfectly
 
----
 
-## Phase 3: Inline Intrusion Detection & Prevention using snort
+## Phase 3: Inline Intrusion Detection & Prevention using SNORT
 
 Deployed a dedicated Ubuntu Server VM running Snort, specifically in **inline mode** (not passive/IDS-only like the SOC Lab's Suricata), so it can actively monitor and drop malicious traffic rather than just alert on it.
 
@@ -76,6 +91,7 @@ Deployed a dedicated Ubuntu Server VM running Snort, specifically in **inline mo
   `sudo snort -c /etc/snort/snort.conf -Q --daq afpacket -i enp0s3:enp0s8 -A console`
   
 **Custom detection rules to prevent — RDP brute force:**
+Created a custom rule to detect and drop brute force attacks:
   `drop tcp any any -> 192.168.1.9 3389 (msg:“RDP Brute Force Attempt Detected - BLOCKED”; flags:S; detection_filter:track by_src, count 5, seconds 60; sid:1000002; rev:1;)`
 
 
