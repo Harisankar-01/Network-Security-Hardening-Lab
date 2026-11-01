@@ -8,7 +8,7 @@ A follow-up project to the <a href="https://github.com/Harisankar-01/SOC-Lab-Ent
 
 ## Core Objective
 
-The <a href="https://github.com/Harisankar-01/SOC-Lab-Enterprise-Monitoring">SOC Lab project</a>, demonstrated that weak network configuration, a flat subnet with no real firewall enforcement, let an attacker reach and brute-force a target directly.This project fixes that root cause: proper network segmentation forces all traffic through a firewall, hardened rules enforce default-deny, and an inline intrusion detection & prevention system actively alerts & drops malicious traffic in real time, rather than only alerts.
+The <a href="https://github.com/Harisankar-01/SOC-Lab-Enterprise-Monitoring">SOC Lab project</a>, demonstrated that weak network configuration, a flat subnet with no real firewall enforcement, weak account policies let an attacker reach and brute-force a target directly. This project fixes that root cause: proper network segmentation forces all traffic through a firewall, hardened rules enforce default-deny, and an inline intrusion detection & prevention system actively alerts & drops malicious traffic in real time, rather than only alerts.
 
 ---
 
