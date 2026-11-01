@@ -60,9 +60,9 @@ All traffic between the attacker zone (WAN) and the protected zone (LAN) is forc
 `(OPNsense Firewall have its own inbuilt rules which blocks unwanted connections from untrusted zone by defualt)`
 - in built rules of the firewall blocks connections from wan network by default so configured explicit allow rules only for ICMP & SSH and RDP (TCP/3389) for testing purpose 
 - Verified default-deny is active: unallowed ports (e.g. via a full Nmap scan) return `not showed marked as closed OPNsesne detected and  blocked the request and logged the scan attempt as **"Default deny / state violation"**
-- once testing was completed  restricted RDP source to a single authorised host and removed the allow rule of ICMP to demonstrate a hardened least privilege configuration ,and remove unnecessary attack surface.
-  before: source = '10.0.0.0/24 (any device on wan)
-  after:  source=  '10.0.0.5 (kalis exact ip) 
+- once testing was completed  restricted RDP source to a single authorised host and removed the allow rule of ICMP to **demonstrate a hardened least privilege configuration ,and remove unnecessary attack surface**.
+- before: source = '10.0.0.0/24 (any device on wan)
+- after:  source=  '10.0.0.5 (kalis exact ip) 
 
 **Result:**
 ```bash
