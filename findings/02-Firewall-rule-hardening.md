@@ -1,4 +1,4 @@
-# 03 - Least-Privilege Hardening: Restricting RDP Source & Removing ICMP
+# 03 - Least-Privilege Hardening: Restricting RDP Source & Removing ICMP & SSH
 
 **Objective:** Move from a working but broad allow-rule (any WAN host can reach RDP) to a hardened, least-privilege configuration, and remove unnecessary attack surface once testing was complete.
 
