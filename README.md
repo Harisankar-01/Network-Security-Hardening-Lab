@@ -68,14 +68,14 @@ All traffic between the attacker zone (WAN) and the protected zone (LAN) is forc
 ```bash
 xfreerdp /u:administrator /p: password /v:192.168.1.9 
 ```
-Connected Successfully
+Connected Successfully.
 Tested from a different machine on the Same Network but its not connected this confirms the rule is perfectly working 
 * **Nmap test**
 from kali:
 ```bash
 nmap -sS 192.168.1.9
 ```
-* **Result**
+ **Result**
 * IT shows all ports are closed/filtered
 this confirms that the firewall blocking all unwanted connections from outside network perfectly
 
@@ -130,5 +130,6 @@ Screenshots and logs (firewall rule configuration, live-view logs showing blocke
 <img src="https://img.shields.io/badge/-Snort-EF3B2D?&style=for-the-badge&logo=snort&logoColor=white">
 <img src="https://img.shields.io/badge/OPNsense-Firewall-D94F00?style=for-the-badge&logo=opnsense&logoColor=white">
 <img src="https://img.shields.io/badge/-Windows-0078D4?&style=for-the-badge&logo=windows&logoColor=white" />
+<img src="https://img.shields.io/badge/-Kali%20Linux-557C94?&style=for-the-badge&logo=kalilinux&logoColor=white" />
 </div>
 
