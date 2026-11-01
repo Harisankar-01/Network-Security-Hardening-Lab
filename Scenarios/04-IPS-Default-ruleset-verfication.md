@@ -1,4 +1,4 @@
-# 05 - Default Ruleset Detection: Nmap Scan
+# 04 - Default Ruleset Detection: Nmap Scan
 
 **Objective:** Determine whether Snort's out-of-the-box community ruleset provides any detection value beyond the custom brute-force rule.
 
